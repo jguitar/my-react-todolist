@@ -9,4 +9,9 @@ describe('AddTodo component', () => {
     const component = shallow(<AddTodo />);
     expect(component.exists()).toEqual(true);
   });
+
+  it('Should have one input', () => {
+    const component = shallow(<AddTodo />);
+    expect(component.find('.todo-input').length).toEqual(1);
+  });
 });
