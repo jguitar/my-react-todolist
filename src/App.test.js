@@ -11,6 +11,7 @@ it('App renders without crashing', () => {
   const component = shallow(<App
     state={initialState}
     submitTodo={mockFunction}
+    todos={[]}
   />);
 
   expect(component.exists()).toEqual(true);
