@@ -14,4 +14,11 @@ describe('AddTodo component', () => {
     const component = shallow(<AddTodo />);
     expect(component.find('.todo-input').length).toEqual(1);
   });
+
+  describe('Add todo button', () => {
+    it('Should exist', () => {
+      const component = shallow(<AddTodo />);
+      expect(component.find('.todo-submit').length).toEqual(1);
+    });
+  });
 });
