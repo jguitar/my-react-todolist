@@ -1,29 +1,34 @@
-/* global expect, it, describe, jest */
+/* global expect, it, describe, jest, beforeEach */
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import AddTodo from '.';
 
 describe('AddTodo component', () => {
+  let component;
+  const submitMock = jest.fn();
+
+  beforeEach(() => {
+    component = shallow(<AddTodo
+      submitTodo={submitMock}
+    />);
+  });
+
   it('Should render successfully', () => {
-    const component = shallow(<AddTodo />);
     expect(component.exists()).toEqual(true);
   });
 
   it('Should have one input', () => {
-    const component = shallow(<AddTodo />);
     expect(component.find('.todo-input').length).toEqual(1);
   });
 
   describe('Add todo button', () => {
     it('Should exist', () => {
-      const component = shallow(<AddTodo />);
       expect(component.find('.todo-submit').length).toEqual(1);
     });
 
     it('Should call the submitTodo function when clicked', () => {
-      const submitMock = jest.fn();
-      const component = mount(<AddTodo submitTodo={submitMock} />);
+      component = mount(<AddTodo submitTodo={submitMock} />);
 
       expect(submitMock).not.toHaveBeenCalled();
       component.find('form').simulate('submit');
