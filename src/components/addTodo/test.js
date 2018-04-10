@@ -25,9 +25,9 @@ describe('AddTodo component', () => {
       const submitMock = jest.fn();
       const component = mount(<AddTodo submitTodo={submitMock} />);
 
-      expect(submitMock.mock.calls.length).toEqual(0);
+      expect(submitMock).not.toHaveBeenCalled();
       component.find('form').simulate('submit');
-      expect(submitMock.mock.calls.length).toEqual(1);
+      expect(submitMock).toHaveBeenCalled();
     });
   });
 });
