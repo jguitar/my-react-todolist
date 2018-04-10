@@ -15,7 +15,7 @@ describe('TodoList App', () => {
     browser.url('http://localhost:3000/');
     browser.element('.todo-input').setValue(todoText);
     browser.click('.todo-submit');
-    const actual = browser.element('.todo-texxt').getText();
+    const actual = browser.element('.todo-text').getText();
 
     expect(actual).to.equal(todoText);
   });
