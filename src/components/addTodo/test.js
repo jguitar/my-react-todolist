@@ -1,7 +1,7 @@
-/* global expect, it, describe */
+/* global expect, it, describe, jest */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import AddTodo from '.';
 
 describe('AddTodo component', () => {
@@ -19,6 +19,15 @@ describe('AddTodo component', () => {
     it('Should exist', () => {
       const component = shallow(<AddTodo />);
       expect(component.find('.todo-submit').length).toEqual(1);
+    });
+
+    it('Should call the submitTodo function when clicked', () => {
+      const submitMock = jest.fn();
+      const component = mount(<AddTodo submitTodo={submitMock} />);
+
+      expect(submitMock.mock.calls.length).toEqual(0);
+      component.find('form').simulate('submit');
+      expect(submitMock.mock.calls.length).toEqual(1);
     });
   });
 });
