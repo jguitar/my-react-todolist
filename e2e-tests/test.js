@@ -1,18 +1,21 @@
-/* global describe, it, browser */
+/* global describe, it, browser, beforeEach */
 
 const expect = require('chai').expect
 
 describe('TodoList App', () => {
-  it('Should load with the right title', () => {
+  const todoText = 'Get better at testing'
+
+  beforeEach(() => {
     browser.url('http://localhost:3000/')
+  })
+
+  it('Should load with the right title', () => {
     const actualTitle = browser.getTitle()
 
     expect(actualTitle).to.eql('Todo List')
   })
 
   it('should allow me to create a Todo', () => {
-    const todoText = 'Get better at testing'
-    browser.url('http://localhost:3000/')
     browser.element('.todo-input').setValue(todoText)
     browser.click('.todo-submit')
     const actual = browser.element('.todo-text').getText()
@@ -21,8 +24,6 @@ describe('TodoList App', () => {
   })
 
   it('should allow me to delete a Todo', () => {
-    const todoText = 'Get better at testing'
-    browser.url('http://localhost:3000/')
     browser.element('.todo-input').setValue(todoText)
     browser.click('.todo-submit')
     browser.click('.todo-delete')
@@ -32,8 +33,6 @@ describe('TodoList App', () => {
   })
 
   it('should allow me to undelete a Todo', () => {
-    const todoText = 'Get better at testing'
-    browser.url('http://localhost:3000/')
     browser.element('.todo-input').setValue(todoText)
     browser.click('.todo-submit')
     browser.click('.todo-delete')
