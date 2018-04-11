@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const enableUndelete = (todo) => {
+  return todo.id
+}
+
 const TodoList = ({ todos, deleteTodo, undeleteTodo, deleted }) => {
   const todoItems = todos.map(todo => (
     <li key={todo.id}>
@@ -23,7 +27,7 @@ const TodoList = ({ todos, deleteTodo, undeleteTodo, deleted }) => {
         type='button'
         className='todo-undelete'
         onClick={() => undeleteTodo()}
-        disabled={!deleted.id}
+        disabled={!enableUndelete(deleted)}
       >
         Undelete
       </button>
