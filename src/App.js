@@ -5,11 +5,11 @@ import AddTodo from './components/addTodo/'
 import TodoList from './components/todoList/'
 import actions from './actions'
 
-export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo }) => (
+export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, deleted }) => (
   <div>
     <h1>Todo List</h1>
     <AddTodo submitTodo={submitTodo} />
-    <TodoList todos={todos} deleteTodo={deleteTodo} undeleteTodo={undeleteTodo} />
+    <TodoList todos={todos} deleteTodo={deleteTodo} undeleteTodo={undeleteTodo} deleted={deleted} />
   </div>
 )
 
@@ -22,7 +22,8 @@ App.propTypes = {
     }
   )).isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  undeleteTodo: PropTypes.func.isRequired
+  undeleteTodo: PropTypes.func.isRequired,
+  deleted: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => state.todoListApp

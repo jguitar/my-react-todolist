@@ -40,4 +40,17 @@ describe('TodoList App', () => {
     browser.click('.todo-undelete')
     expect(browser.isExisting('.todo-text')).to.equal(true)
   })
+
+  it('should allow me to undelete a Todo when there are items deleted and not before', () => {
+    expect(browser.isEnabled('.todo-undelete')).to.equal(false)
+
+    browser.element('.todo-input').setValue(todoText)
+    browser.click('.todo-submit')
+
+    expect(browser.isEnabled('.todo-undelete')).to.equal(false)
+
+    browser.click('.todo-delete')
+
+    expect(browser.isEnabled('.todo-undelete')).to.equal(true)
+  })
 })
