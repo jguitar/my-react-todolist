@@ -22,9 +22,24 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [
-          ...state.todos.filter(todo => (
-            todo.id !== action.id
-          )),
+          ...state.todos.map((todo) => {
+            const newTodo = todo;
+            newTodo.deleted = newTodo.id === action.id;
+            return newTodo;
+          }),
+        ],
+      };
+
+
+    case types.UNDELETE_TODO:
+      return {
+        ...state,
+        todos: [
+          ...state.todos.map((todo) => {
+            const newTodo = todo;
+            newTodo.deleted = newTodo.id !== action.id;
+            return newTodo;
+          }),
         ],
       };
 
