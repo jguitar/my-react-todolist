@@ -1,36 +1,36 @@
 /* global expect, it, describe */
 
-import types from '../constants';
-import { reducer, initialState } from '.';
+import types from '../constants'
+import { reducer, initialState } from '.'
 
 describe('Reducer', () => {
-  const todoText = 'A todo';
+  const todoText = 'A todo'
 
   it('Should return the initial state when no action passed', () => {
-    expect(reducer(undefined, {})).toEqual(initialState);
-  });
+    expect(reducer(undefined, {})).toEqual(initialState)
+  })
 
   describe('Submit todo', () => {
     it('Should return the correct state', () => {
       const action = {
         type: types.SUBMIT_TODO,
         id: 1,
-        text: todoText,
-      };
+        text: todoText
+      }
 
       const expectedState = {
         todos: [
           {
             id: 1,
-            text: todoText,
-          },
+            text: todoText
+          }
         ],
-        deleted: {},
-      };
+        deleted: {}
+      }
 
-      expect(reducer(undefined, action)).toEqual(expectedState);
-    });
-  });
+      expect(reducer(undefined, action)).toEqual(expectedState)
+    })
+  })
 
   describe('Delete todo', () => {
     it('Should return the correct state', () => {
@@ -38,27 +38,27 @@ describe('Reducer', () => {
         todos: [
           {
             id: 1,
-            text: todoText,
-          },
-        ],
-      };
+            text: todoText
+          }
+        ]
+      }
 
       const action = {
         type: types.DELETE_TODO,
-        id: 1,
-      };
+        id: 1
+      }
 
       const expectedState = {
         todos: [],
         deleted: {
           id: 1,
-          text: todoText,
-        },
-      };
+          text: todoText
+        }
+      }
 
-      expect(reducer(startingState, action)).toEqual(expectedState);
-    });
-  });
+      expect(reducer(startingState, action)).toEqual(expectedState)
+    })
+  })
 
   describe('Undelete todo', () => {
     it('Should return the correct state', () => {
@@ -66,25 +66,25 @@ describe('Reducer', () => {
         todos: [],
         deleted: {
           id: 1,
-          text: todoText,
-        },
-      };
+          text: todoText
+        }
+      }
 
       const action = {
-        type: types.UNDELETE_TODO,
-      };
+        type: types.UNDELETE_TODO
+      }
 
       const expectedState = {
         todos: [
           {
             id: 1,
-            text: todoText,
-          },
+            text: todoText
+          }
         ],
-        deleted: {},
-      };
+        deleted: {}
+      }
 
-      expect(reducer(startingState, action)).toEqual(expectedState);
-    });
-  });
-});
+      expect(reducer(startingState, action)).toEqual(expectedState)
+    })
+  })
+})

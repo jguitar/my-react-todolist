@@ -1,31 +1,31 @@
-import types from '../constants/index';
+import types from '../constants/index'
 
-let todoId = 0;
+let todoId = 0
 
 const nextId = () => {
-  todoId += 1;
-  return todoId;
-};
+  todoId += 1
+  return todoId
+}
 
 const actions = {
-  submitTodo(text) {
+  submitTodo (text) {
     return {
       type: types.SUBMIT_TODO,
       id: nextId(),
-      text,
-    };
+      text
+    }
   },
-  deleteTodo(id) {
+  deleteTodo (id) {
     return {
       type: types.DELETE_TODO,
-      id,
-    };
+      id
+    }
   },
-  undeleteTodo() {
+  undeleteTodo () {
     return {
-      type: types.UNDELETE_TODO,
-    };
-  },
-};
+      type: types.UNDELETE_TODO
+    }
+  }
+}
 
-export default actions;
+export default actions

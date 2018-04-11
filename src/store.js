@@ -1,8 +1,8 @@
-import { combineReducers, createStore } from 'redux';
-import todoListApp from './reducers';
+import { combineReducers, createStore } from 'redux'
+import todoListApp from './reducers'
 
 const reducers = combineReducers({
-  todoListApp,
-});
+  todoListApp
+})
 
-export default createStore(reducers);
+export default createStore(reducers)

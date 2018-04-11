@@ -1,12 +1,12 @@
 /* global it, expect, jest */
 
-import React from 'react';
-import { shallow } from 'enzyme';
-import { App } from './App';
-import { initialState } from './reducers';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { App } from './App'
+import { initialState } from './reducers'
 
 it('App renders without crashing', () => {
-  const mockFunction = jest.fn();
+  const mockFunction = jest.fn()
 
   const component = shallow(<App
     state={initialState}
@@ -14,7 +14,7 @@ it('App renders without crashing', () => {
     todos={[]}
     deleteTodo={mockFunction}
     undeleteTodo={mockFunction}
-  />);
+  />)
 
-  expect(component.exists()).toEqual(true);
-});
+  expect(component.exists()).toEqual(true)
+})
