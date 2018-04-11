@@ -30,4 +30,16 @@ describe('TodoList App', () => {
 
     expect(actual.state).to.equal('failure');
   });
+
+  it('should allow me to undelete a Todo deleted', () => {
+    const todoText = 'Get better at testing';
+    browser.url('http://localhost:3000/');
+    browser.element('.todo-input').setValue(todoText);
+    browser.click('.todo-submit');
+    browser.click('.todo-delete');
+    browser.click('.todo-undelete');
+    const actual = browser.element('.todo-text').getText();
+
+    expect(actual).to.equal(todoText);
+  });
 });
