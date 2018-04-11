@@ -37,9 +37,8 @@ describe('TodoList App', () => {
     browser.element('.todo-input').setValue(todoText);
     browser.click('.todo-submit');
     browser.click('.todo-delete');
+    expect(browser.isExisting('.todo-text')).to.be.false;
     browser.click('.todo-undelete');
-    const actual = browser.element('.todo-text');
-
-    expect(actual.state).to.equal('success');
+    expect(browser.isExisting('.todo-text')).to.be.true;
   });
 });
