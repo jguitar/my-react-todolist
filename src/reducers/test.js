@@ -25,7 +25,8 @@ describe('Reducer', () => {
             text: todoText
           }
         ],
-        deleted: {}
+        deleted: {},
+        disableAddTodo: true
       }
 
       expect(reducer(undefined, action)).toEqual(expectedState)
@@ -67,7 +68,8 @@ describe('Reducer', () => {
         deleted: {
           id: 1,
           text: todoText
-        }
+        },
+        disableAddTodo: false
       }
 
       const action = {
@@ -81,10 +83,43 @@ describe('Reducer', () => {
             text: todoText
           }
         ],
-        deleted: {}
+        deleted: {},
+        disableAddTodo: false
       }
 
       expect(reducer(startingState, action)).toEqual(expectedState)
+    })
+  })
+
+  describe('Input change', () => {
+    it('Should return the correct state when no value entered', () => {
+      const action = {
+        type: types.INPUT_CHANGED,
+        inputText: ''
+      }
+
+      const expectedState = {
+        todos: [],
+        deleted: {},
+        disableAddTodo: true
+      }
+
+      expect(reducer(undefined, action)).toEqual(expectedState)
+    })
+
+    it('Should return the correct state when a value is entered', () => {
+      const action = {
+        type: types.INPUT_CHANGED,
+        inputText: todoText
+      }
+
+      const expectedState = {
+        todos: [],
+        deleted: {},
+        disableAddTodo: false
+      }
+
+      expect(reducer(undefined, action)).toEqual(expectedState)
     })
   })
 })

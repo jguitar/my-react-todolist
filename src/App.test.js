@@ -15,6 +15,8 @@ it('App renders without crashing', () => {
     deleteTodo={mockFunction}
     undeleteTodo={mockFunction}
     deleted={{}}
+    inputChanged={mockFunction}
+    disableAddTodo
   />)
 
   expect(component.exists()).toEqual(true)

@@ -25,6 +25,12 @@ const actions = {
     return {
       type: types.UNDELETE_TODO
     }
+  },
+  inputChanged (inputText) {
+    return {
+      type: types.INPUT_CHANGED,
+      inputText
+    }
   }
 }
 

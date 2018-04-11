@@ -53,4 +53,13 @@ describe('TodoList App', () => {
 
     expect(browser.isEnabled('.todo-undelete')).to.equal(true)
   })
+
+  it('Should disable the Add Todo button when no text is entered', () => {
+    expect(browser.isEnabled('.todo-submit')).to.equal(false)
+  })
+
+  it('Should enable the Add Todo button when text is entered', () => {
+    browser.element('.todo-input').setValue(todoText)
+    expect(browser.isEnabled('.todo-submit')).to.equal(true)
+  })
 })
