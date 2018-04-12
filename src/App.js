@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import AddTodo from './components/addTodo/'
 import TodoList from './components/todoList/'
+import Clock from './components/clock'
 import Page from './components/page/'
 import actions from './actions'
 
@@ -11,8 +12,12 @@ export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, deleted, inpu
     <h1>Todo List</h1>
     <AddTodo submitTodo={submitTodo} inputChanged={inputChanged} disableAddTodo={disableAddTodo} />
     <TodoList todos={todos} deleteTodo={deleteTodo} undeleteTodo={undeleteTodo} deleted={deleted} />
+
     <hr />
     <Page />
+
+    <hr />
+    <Clock />
   </div>
 )
 
