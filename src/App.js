@@ -5,6 +5,7 @@ import AddTodo from './components/addTodo/'
 import TodoList from './components/todoList/'
 import Clock from './components/clock'
 import Page from './components/page/'
+import Toggle from './components/toggle'
 import actions from './actions'
 
 export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, deleted, inputChanged, disableAddTodo }) => (
@@ -18,6 +19,9 @@ export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, deleted, inpu
 
     <hr />
     <Clock />
+
+    <hr />
+    <Toggle />
   </div>
 )
 
