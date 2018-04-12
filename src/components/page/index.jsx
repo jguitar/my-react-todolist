@@ -1,15 +1,11 @@
 import React from 'react'
 
-function WarningBanner (props) {
+const WarningBanner = (props) => {
   if (!props.warn) {
     return null
   }
 
-  return (
-    <div className='warning'>
-      Warning!
-    </div>
-  )
+  return <div className='warning'> Warning!</div>
 }
 
 class Page extends React.Component {
