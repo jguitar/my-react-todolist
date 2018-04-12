@@ -16,10 +16,9 @@ class Page extends React.Component {
   constructor (props) {
     super(props)
     this.state = {showWarning: true}
-    this.handleToggleClick = this.handleToggleClick.bind(this)
   }
 
-  handleToggleClick () {
+  handleToggleClick = () => {
     this.setState(prevState => ({
       showWarning: !prevState.showWarning
     }))
