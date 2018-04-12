@@ -33,6 +33,7 @@
   "standard": {
     "ignore": [
       "src/registerServiceWorker.js"
-    ]
+    ],
+    "parser": "babel-eslint"
   }
 }
