@@ -22,12 +22,12 @@ class Page extends React.Component {
 
   render () {
     return (
-      <div>
+      <React.Fragment>
         <WarningBanner warn={this.state.showWarning} />
         <button onClick={this.handleToggleClick}>
           {this.state.showWarning ? 'Hide' : 'Show'}
         </button>
-      </div>
+      </React.Fragment>
     )
   }
 }
